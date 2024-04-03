@@ -29,43 +29,8 @@
   justify-content: space-evenly;
 }
 
-.filter-container {
-  display: flex;
-  flex-direction: row;
-  padding: 1em;
-  margin: 1.5em 2em 0;
-  align-self: center;
-  justify-content: space-around;
-}
-
-.filter-label {
-  font-size: 18px;;
-}
-
-.filter {
-  margin: 0 20px;
-}
-
-#selectType {
-  font: inherit;
-  margin-top: 5px;
-  padding: 9px;
-  border-radius: 5px;
-}
-
-.refreshBtn {
-  margin: 5px;
-}
-
 .icon {
   height: 18px;
-}
-
-.refresh-block {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: fit-content;
 }
 
 ::-webkit-scrollbar {

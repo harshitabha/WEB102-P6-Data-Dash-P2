@@ -1,47 +1,45 @@
-# Web Development Project 5 - Magic the Gathering Data Dashboard
-Submitted by: Harshita Bhardwaj
+# Web Development Project 6 - *Name of App Here*
 
-This web app: This web app retrieves 50 random cards fron the Magic the Gathering API and features their key elements on the data dashboard. The user is also able to apply various filters to the data shown in order to filter what cards they see.
+Submitted by: **Harshita Bhardwaj**
 
-Time spent: 18-20 hours spent in total
+This web app: 
+
+Time spent: **X** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [✅] **The list displays a list of data fetched using an API call**
-- [✅] **Data uses the useEffect React hook and async/await syntax**
-- [✅] **The app dashboard includes at least three summary statistics about the data such as**
-  * The total number of cards shown
-  * The number of Creatures in the cards displayed
-  * the number of Sorceries in the cards displayed
-  * the number of Enchantments in the cards displayed
-- [✅] **A search bar allows the user to search for an item in the fetched data**
-- [✅] **Multiple different filters (2+) allow the user to filter items in the database by specified categories**
+- [ ] **The app includes at least one unique chart developed using the fetched data that tell an interesting story**
+- [ ] **Clicking on an item in the list view displays more details about it**
+- [ ] **Clicking on an item has a direct, unique link to that item's detail view page**
+
 
 The following **optional** features are implemented:
 
-- [✅] Multiple filters can be applied simultaneously
-- [✅] Filters use different input types such as a text input, a selection, or a slider
-- [ ] The user can enter specific bounds for filter values
+- [ ] The site's customized dashboard contains more content that explains what is interesting about the data
+- [ ] The site allows users to toggle between different data visualizations
 
 The following **additional** features are implemented:
 
-* I Added a Refresh button to my filters div in case the user wants to refresh the data they have
+* [ ] List anything else that you added to improve the site's functionality!
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-<img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWZlZGk5dTVtYzdvaWxhdnN6cWpsOGt4dXF6ZmpkdzZua3dzcWp0NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KK9tIRTXChY7Yx1Vut/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-Video walkthrough created using ScreenToGif
+<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+<!-- Replace this with whatever GIF tool you used! -->
+GIF created with ...  
+<!-- Recommended tools:
+[Kap](https://getkap.co/) for macOS
+[ScreenToGif](https://www.screentogif.com/) for Windows
+[peek](https://github.com/phw/peek) for Linux. -->
 
 ## Notes
-For this project, I ran into several challenges. Here are the challenges I faced:
-* Difficulty figuring out how to remove the filters from the filtered list. It was easier to figure out how to remove all the filters but removing individual ones was difficult. To resolve this I created a state variable that stored both the filtered list of cards, and the original result of cards from the API.
-* Determining what URL parameters I had to use to randomize the cards that are fetched every time and the number of cards fetched due to the MTG API documentation being confusing.
-* Making sure the right state values were passed through properly because I lifted the state up to the App-level component. Due to this I had to pass through any onClick handlers and state variables.
-* Figuring out the best way to organize the data in a table setup (I ended up utilizing a flexbox to do this).
+
+Describe any challenges encountered while building the app.
 
 ## License
 

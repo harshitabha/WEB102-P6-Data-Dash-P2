@@ -1,12 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRotateRight } from '@fortawesome/free-solid-svg-icons'
 
 import "./App.css";
 import Header from "./components/Header";
 import Section from "./components/Section";
 import StatsBlock from "./components/StatsBlock";
-import BubbleSelect from "./components/BubbleSelect";
+import Filters from "./components/Filters";
 
 const App = () => {
   const [cardsInfo, setCards] = useState({
@@ -156,44 +154,11 @@ const App = () => {
           info={calcCards('other')}/>
       </div>
 
-      <div className="filter-container dash-elem">
-        <div className="select-container filter">
-          <label htmlFor="selectType" className="filter-label">Card Type</label>
-          <br />
-          <select name="selectType" id="selectType" onChange={(e) => {handleFilterChange(e)}}>
-            <option defaultValue={"all"} value="all" className="select-option">All</option>
-            <option value="creature" className="select-option">Creature</option>
-            <option value="sorcery" className="select-option">Sorcery</option>
-            <option value="enchantment" className="select-option">Enchantment</option>
-            <option value="other" className="select-option">Other</option>
-          </select>
-        </div>
-        
-        <BubbleSelect 
-          label="Minimum Power"
-          options={bubbleOptions}
-          type="power"
-          active={filter.power}
-          handleClick={handleFilterChange}
-          bOptionClasses = "power"
-          classes="filter"/>
-        
-        <BubbleSelect 
-          label="Minimum Toughness"
-          options={bubbleOptions}
-          type="tough"
-          active={filter.tough}
-          handleClick={handleFilterChange}
-          bOptionClasses = "tough"
-          classes="filter"/>
-
-        <div className="refresh-block filter">
-          <label htmlFor="refreshBtn filter-label">Refresh Cards</label>
-          <button className="refreshBtn" id="refreshBtn" onClick={refreshCards}>
-            <FontAwesomeIcon icon={faRotateRight} className="icon"/>
-          </button>
-        </div>  
-      </div>
+      <Filters 
+        handleChange = {handleFilterChange}
+        filterVar = {filter}
+        loadCards = {refreshCards}
+        bubbleOptions = {bubbleOptions}/>
 
       <div className="data-body dash-elem">
         <Section 
