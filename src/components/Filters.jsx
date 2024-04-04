@@ -6,7 +6,7 @@ import "./Filters.css";
 
 const Filters = ({handleChange, filterVar, loadCards, bubbleOptions}) => {
     return (
-        <div className="filter-container dash-elem">
+      <div className="filter-container dash-elem">
         <div className="select-container filter">
           <label htmlFor="selectType" className="filter-label">Card Type</label>
           <br />

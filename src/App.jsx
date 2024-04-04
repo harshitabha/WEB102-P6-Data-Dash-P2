@@ -2,9 +2,9 @@ import { useState, useEffect, useRef } from "react";
 
 import "./App.css";
 import Header from "./components/Header";
-import Section from "./components/Section";
-import StatsBlock from "./components/StatsBlock";
+import Stats from "./components/Stats";
 import Filters from "./components/Filters";
+import DataCard from "./components/DataCard";
 
 const App = () => {
   const [cardsInfo, setCards] = useState({
@@ -66,7 +66,6 @@ const App = () => {
 
     
   }, [filter]);
-  useEffect(() => {console.log(cardsInfo);} , [cardsInfo]);
 
   const getNewCards = async () => {
     const apiURL = "https://api.magicthegathering.io/v1/cards?pageSize=50&random=true";
@@ -136,23 +135,9 @@ const App = () => {
         change={handleFilterChange}
         searchVal={filter.search}/>
 
-      <div className="stats-container">
-        <StatsBlock 
-          type="Total Cards"
-          info={cardsInfo.displayedCards ? cardsInfo.displayedCards.length : 0}/>
-        <StatsBlock 
-          type="Creatures"
-          info={calcCards('Creature')}/>
-        <StatsBlock 
-          type="Sorceries"
-          info={calcCards('Sorcery')}/>
-        <StatsBlock 
-          type="Enchantments"
-          info={calcCards('Enchantment')}/>
-        <StatsBlock 
-          type="Other"
-          info={calcCards('other')}/>
-      </div>
+      <Stats 
+        cardsInfo = {cardsInfo}
+        calcCards = {calcCards}/>
 
       <Filters 
         handleChange = {handleFilterChange}
@@ -160,28 +145,8 @@ const App = () => {
         loadCards = {refreshCards}
         bubbleOptions = {bubbleOptions}/>
 
-      <div className="data-body dash-elem">
-        <Section 
-          header="Name"
-          content={cardsInfo.displayedCards ? cardsInfo.displayedCards.map((cards) => cards.name): null}
-          keyInfo="name"/>
-        <Section 
-          header="Mana Cost"
-          content={cardsInfo.displayedCards ? cardsInfo.displayedCards.map((cards) => cards.manaCost): null}
-          keyInfo="mc"/>
-        <Section 
-          header="Type"
-          content={cardsInfo.displayedCards ? cardsInfo.displayedCards.map((cards) => cards.type): null}
-          keyInfo="type"/>
-        <Section 
-          header="Power"
-          content={cardsInfo.displayedCards ? cardsInfo.displayedCards.map((cards) => cards.power): null}
-          keyInfo="power"/>
-        <Section 
-          header="Toughness"
-          content={cardsInfo.displayedCards ? cardsInfo.displayedCards.map((cards) => cards.toughness): null}
-          keyInfo="tough"/>
-      </div>
+      <DataCard
+        apiCards={cardsInfo.displayedCards}/>
     </>
   );
 }

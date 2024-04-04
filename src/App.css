@@ -6,27 +6,15 @@
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
+  overflow-x: hidden;
   flex-direction: column;
-}
-
-.data-body {
-  margin: 1.5em;
-  display: flex;
-  justify-content: space-evenly;
-  max-height: auto;
-  overflow-y: scroll;
-  height: 60vh;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .dash-elem {
   background-color: rgba(49, 49, 49, 0.65);
   border-radius: 15px;
-}
-
-.stats-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
 }
 
 .icon {
