@@ -1,17 +1,12 @@
 import { useState, useEffect } from "react";
 
 import "./Home.css";
-import Header from "../components/Header";
 import Stats from "../components/Stats";
 import Filters from "../components/Filters";
 import DataCard from "../components/DataCard";
 import DataVisualization from "../components/DataVisualization";
 
-const Home = () => {
-  const [cardsInfo, setCards] = useState({
-    allCards: [],
-    displayedCards: [],
-  });
+const Home = ({cardsInfo, setCards, getNewCards}) => {
   const [filter, setFilter] = useState({
     search: '',
     cardType: 'All',
@@ -21,10 +16,7 @@ const Home = () => {
 
   const bubbleOptions = ["Any", "1", "2", "3", "4", "5+"];
 
-  // original API call
-  useEffect(() => {
-    getNewCards().catch(console.error);
-  }, [])
+  
 
   // update if filter is updated
   useEffect(() => {
@@ -36,12 +28,12 @@ const Home = () => {
         cardsInfo.allCards;
   
       // apply type filter
-      if (filter.cardType === "other") {
+      if (filter.cardType.toLowerCase() === "other") {
         filterSearch = filterSearch.filter((card) => 
           card.type.toLowerCase().indexOf("creature") === -1 &&
           card.type.toLowerCase().indexOf("sorcery") === -1 &&
           card.type.toLowerCase().indexOf("enchantment") === -1);
-      } else if (filter.cardType !== "all") {
+      } else if (filter.cardType.toLowerCase() !== "all") {
         filterSearch = filterSearch.filter((card) => card.type.toLowerCase().indexOf(filter.cardType) !== -1);
       }
         
@@ -54,7 +46,7 @@ const Home = () => {
       filterSearch = filter.tough != 0 ? filterSearch.filter((card) => 
         card.toughness >= filter.tough)
         : filterSearch;
-      
+        
       setCards((prevJson) => ({
         ...prevJson,
         displayedCards: [...filterSearch]
@@ -63,20 +55,11 @@ const Home = () => {
     }
 
     if (cardsInfo.displayedCards) updateCardsDisplay();
+    // debugger;
     
   }, [filter]);
 
-  const getNewCards = async () => {
-    const apiURL = "https://api.magicthegathering.io/v1/cards?pageSize=50&random=true";
-    const response = await fetch(apiURL);
-    const json = await response.json();
-    const cards = json.cards;
-    // update the cards json
-    setCards({
-      displayedCards: [...cards],
-      allCards: [...cards],
-    });
-  }
+  
 
   const calcCards = (valToCount, attr) => {
     let total = 0;
@@ -148,7 +131,7 @@ const Home = () => {
   return (
     <>
       {/* Actual content of the page */}
-      <Header />
+      {/* <Header /> */}
 
       <Stats 
         cardsInfo = {cardsInfo}
