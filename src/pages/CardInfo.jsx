@@ -16,7 +16,7 @@ const CardInfo = () => {
                     {card.artist}
                 </p>
 
-                <div className="flex" style={{width: "60%"}}>
+                <div className="flex" style={{width: "90%"}}>
                     <p className="card-text">
                         <b>Type: </b>
                         {card.type}
@@ -32,7 +32,7 @@ const CardInfo = () => {
                     {card.text}
                 </p>
 
-                <div className="flex" style={{width: "72%"}}>
+                <div className="flex" style={{width: "90%"}}>
                     <p className="card-text">
                         <b>Power: </b>
                     {card.power ? card.power : 'N/A'}
