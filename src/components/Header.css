@@ -10,17 +10,15 @@
 
 .title {
     font-size: 36px;
+}
+
+.text {
     color: white;
     &:hover {
         color: white;
     }
 }
 
-.search {
-    background-color: rgba(53, 53, 53, 0.3);
-    border: 1px solid white;
-    padding: 10px;
-    border-radius: 20px;
-    font: inherit;
-    margin-right: 10px;
+.nav-text {
+    font-size: 20px;
 }

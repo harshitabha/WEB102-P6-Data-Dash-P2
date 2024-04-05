@@ -7,9 +7,11 @@ import Filters from "../components/Filters";
 import DataCard from "../components/DataCard";
 import DataVisualization from "../components/DataVisualization";
 
-const Home = ({cardsInfo, setCards}) => {
-  
-  // const [cardsInfo, setCards] = useState(null);
+const Home = () => {
+  const [cardsInfo, setCards] = useState({
+    allCards: [],
+    displayedCards: [],
+  });
   const [filter, setFilter] = useState({
     search: '',
     cardType: 'All',
@@ -61,7 +63,6 @@ const Home = ({cardsInfo, setCards}) => {
     }
 
     if (cardsInfo.displayedCards) updateCardsDisplay();
-
     
   }, [filter]);
 
@@ -147,10 +148,7 @@ const Home = ({cardsInfo, setCards}) => {
   return (
     <>
       {/* Actual content of the page */}
-      <Header
-        showSearch={true}
-        onChange={handleFilterChange}
-        searchVal={filter.search}/>
+      <Header />
 
       <Stats 
         cardsInfo = {cardsInfo}

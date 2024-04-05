@@ -1,10 +1,11 @@
 import BubbleSelect from "./BubbleSelect";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRotateRight } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 import "./Filters.css";
 
-const Filters = ({handleChange, filterVar, loadCards, bubbleOptions}) => {
+const Filters = ({handleChange, filterVar, loadCards, bubbleOptions, searchVal}) => {
     return (
       <div className="filter-container dash-elem">
         <div className="select-container filter">
@@ -42,6 +43,18 @@ const Filters = ({handleChange, filterVar, loadCards, bubbleOptions}) => {
           <button className="refreshBtn" id="refreshBtn" onClick={loadCards}>
             <FontAwesomeIcon icon={faRotateRight} className="icon"/>
           </button>
+        </div>
+
+        <br />
+        <div className="searchContainer filter">
+          <input 
+              type="text" 
+              className="search" 
+              placeholder="Search..."
+              value={filterVar.search} 
+              name="search"
+              onChange={(e) => {handleChange(e)}}/>
+            <FontAwesomeIcon icon={faMagnifyingGlass} className='icon'/>
         </div>  
       </div>
     );

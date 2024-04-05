@@ -30,23 +30,26 @@ const DataCard = ({apiCards}) => {
 
 
                 <tbody>
-                    {apiCards ? apiCards.map((cards, index) => {
+                    {apiCards ? apiCards.map((card, index) => {
                         return (
                             <tr key={`card-${index}`}>
                                 <td 
                                     className="table-elem">
-                                    <Link to={`/card-info/${index}`}>
-                                        {cards.name ? cards.name : "N/A"}
+                                    <Link 
+                                        to={`/card-info/${index}`}
+                                        state={card}
+                                        className='text'>
+                                        {card.name ? card.name : "N/A"}
                                     </Link>
                                 </td>
                                 <td 
-                                    className="table-elem">{cards.type ? cards.type : "N/A"}</td>
+                                    className="table-elem">{card.type ? card.type : "N/A"}</td>
                                 <td 
-                                    className="table-elem">{cards.manaCost ? cards.manaCost : "N/A"}</td>
+                                    className="table-elem">{card.manaCost ? card.manaCost : "N/A"}</td>
                                 <td 
-                                    className="table-elem">{cards.power ? cards.power : "N/A"}</td>
+                                    className="table-elem">{card.power ? card.power : "N/A"}</td>
                                 <td 
-                                    className="table-elem">{cards.toughness ? cards.toughness : "N/A"}</td>
+                                    className="table-elem">{card.toughness ? card.toughness : "N/A"}</td>
                             </tr>
                         );
                     }) : null}

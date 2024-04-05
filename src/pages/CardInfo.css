@@ -1,0 +1,22 @@
+.card-info {
+    display: flex;
+    padding: 1.5vw;
+    max-width: 50vw;
+    align-items: center;
+}
+
+.card-img {
+    border-radius: 15px;
+    margin-right: 2vw;
+    height: 90%;
+}
+
+.card-text {
+    font-size: 18px;
+
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
