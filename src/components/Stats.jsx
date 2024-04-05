@@ -9,16 +9,16 @@ const Stats = ({cardsInfo, calcCards}) => {
                 info={cardsInfo.displayedCards ? cardsInfo.displayedCards.length : 0}/>
             <StatsBlock 
                 type="Creatures"
-                info={calcCards('Creature')}/>
+                info={calcCards('Creature', 'type')}/>
             <StatsBlock 
                 type="Sorceries"
-                info={calcCards('Sorcery')}/>
+                info={calcCards('Sorcery', 'type')}/>
             <StatsBlock 
                 type="Enchantments"
-                info={calcCards('Enchantment')}/>
+                info={calcCards('Enchantment', 'type')}/>
             <StatsBlock 
                 type="Other"
-                info={calcCards('other')}/>
+                info={calcCards('other', 'type')}/>
         </div>
     );
 }

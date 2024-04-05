@@ -10,6 +10,7 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  
 }
 
 .dash-elem {
@@ -19,6 +20,11 @@
 
 .icon {
   height: 18px;
+}
+
+.data-info {
+  width: 95%;
+  display: flex;
 }
 
 ::-webkit-scrollbar {

@@ -1,4 +1,6 @@
 // update component to use a table instead of a ul
+import { Link } from 'react-router-dom'
+
 import "./DataCard.css";
 
 const DataCard = ({apiCards}) => {
@@ -32,7 +34,11 @@ const DataCard = ({apiCards}) => {
                         return (
                             <tr key={`card-${index}`}>
                                 <td 
-                                    className="table-elem">{cards.name ? cards.name : "N/A"}</td>
+                                    className="table-elem">
+                                    <Link to={`/card-info/${index}`}>
+                                        {cards.name ? cards.name : "N/A"}
+                                    </Link>
+                                </td>
                                 <td 
                                     className="table-elem">{cards.type ? cards.type : "N/A"}</td>
                                 <td 
