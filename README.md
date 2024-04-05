@@ -11,8 +11,8 @@ Time spent: **X** hours spent in total
 The following **required** functionality is completed:
 
 - [ ] **The app includes at least one unique chart developed using the fetched data that tell an interesting story**
-- [ ] **Clicking on an item in the list view displays more details about it**
-- [ ] **Clicking on an item has a direct, unique link to that item's detail view page**
+- [✅] **Clicking on an item in the list view displays more details about it**
+- [✅] **Clicking on an item has a direct, unique link to that item's detail view page**
 
 
 The following **optional** features are implemented:
@@ -39,7 +39,7 @@ GIF created with ...
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+There is a small issue with the API where it not all cards returned have an image url. If this occurs the card's image will be replaced with alt text stating the name of the card
 
 ## License
 

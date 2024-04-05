@@ -1,7 +1,7 @@
 .card-info {
     display: flex;
     padding: 1.5vw;
-    max-width: 50vw;
+    max-width: 60%;
     align-items: center;
 }
 
