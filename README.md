@@ -4,7 +4,7 @@ Submitted by: **Harshita Bhardwaj**
 
 This web app: 
 
-Time spent: **X** hours spent in total
+Time spent: 10 hours spent in total
 
 ## Required Features
 

@@ -8,9 +8,9 @@ const Header = () => {
             <Link
                 to="/"
                 className="text title">Magic the Gathering</Link>
-            <Link
-                to="/"
-                className="text nav-text">Home</Link>
+            {/* <Link
+                to="/data-viz"
+                className='text nav-text'>Data Visualization</Link> */}
         </div>
     );
 }

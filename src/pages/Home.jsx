@@ -4,9 +4,11 @@ import "./Home.css";
 import Stats from "../components/Stats";
 import Filters from "../components/Filters";
 import DataCard from "../components/DataCard";
-import DataVisualization from "../components/DataVisualization";
+import Header from "../components/Header";
 
-const Home = ({cardsInfo, setCards, getNewCards}) => {
+import { getNewCards } from "../js/general.js";
+
+const Home = ({cardsInfo, setCards, updateDataVizInfo}) => {
   const [filter, setFilter] = useState({
     search: '',
     cardType: 'All',
@@ -15,8 +17,6 @@ const Home = ({cardsInfo, setCards, getNewCards}) => {
   });
 
   const bubbleOptions = ["Any", "1", "2", "3", "4", "5+"];
-
-  
 
   // update if filter is updated
   useEffect(() => {
@@ -55,41 +55,8 @@ const Home = ({cardsInfo, setCards, getNewCards}) => {
     }
 
     if (cardsInfo.displayedCards) updateCardsDisplay();
-    // debugger;
     
   }, [filter]);
-
-  
-
-  const calcCards = (valToCount, attr) => {
-    let total = 0;
-    if (cardsInfo.displayedCards) {
-      if (attr === 'type') {
-        for(let t = 0; t < cardsInfo.displayedCards.length; t++) {
-          if (valToCount === "other" &&
-            cardsInfo.displayedCards[t].type.toLowerCase().indexOf("creature") === -1 &&
-            cardsInfo.displayedCards[t].type.toLowerCase().indexOf("sorcery") === -1 &&
-            cardsInfo.displayedCards[t].type.toLowerCase().indexOf("enchantment") === -1) total++;
-          else if (cardsInfo.displayedCards[t].type.indexOf(valToCount) != -1) total++;
-        }
-      } else if (attr === 'power') {
-        for(let c = 0; c < cardsInfo.displayedCards.length; c++) {
-          if (valToCount == "N/A" && !cardsInfo.displayedCards[c].power) total++;
-          else if (valToCount == "5+" && cardsInfo.displayedCards[c].power >= 5) total++;
-          else if (cardsInfo.displayedCards[c].power == valToCount) total++;
-        }
-      } else if (attr === 'tough') {
-        for(let c = 0; c < cardsInfo.displayedCards.length; c++) {
-          if (valToCount == "N/A" && !cardsInfo.displayedCards[c].toughness) total++;
-          else if (valToCount == "5+" && cardsInfo.displayedCards[c].toughness >= 5) total++;
-          else if (cardsInfo.displayedCards[c].toughness == valToCount) total++;
-        }
-      } else {
-        console.log(`attempted counting of an unsupported attribute: ${attr}`);
-      }
-    }
-    return total;
-  }
 
   const handleFilterChange = (e) => {
     if (e.target.name === "selectType") {
@@ -126,16 +93,20 @@ const Home = ({cardsInfo, setCards, getNewCards}) => {
       power: 0,
       tough: 0
     }));
+
+    updateDataVizInfo();
   }
 
+  useEffect(() => {
+    updateDataVizInfo();
+  }, [cardsInfo.allCards]);
   return (
     <>
       {/* Actual content of the page */}
-      {/* <Header /> */}
+      <Header />
 
       <Stats 
-        cardsInfo = {cardsInfo}
-        calcCards = {calcCards}/>
+        cardsInfo = {cardsInfo} />
 
       <Filters 
         handleChange = {handleFilterChange}
@@ -145,43 +116,6 @@ const Home = ({cardsInfo, setCards, getNewCards}) => {
 
       <DataCard
           apiCards={cardsInfo.displayedCards}/>
-      <div className="data-info">
-        {/* <div className="viz-body">
-            <DataVisualization 
-                data = {[
-                    {
-                        val: "N/A",
-                        power: calcCards("N/A", 'power'),
-                        tough: calcCards("N/A", 'tough'),
-                    },
-                    {
-                        val: "1",
-                        power: calcCards(1, "power"),
-                        tough: calcCards(1, 'tough'),
-                    },
-                    {
-                        val: "2",
-                        power: calcCards(2, "power"),
-                        tough: calcCards(2, 'tough'),
-                    },
-                    {
-                        val: "3",
-                        power: calcCards(3, "power"),
-                        tough: calcCards(3, 'tough'),
-                    },
-                    {
-                        val: "4",
-                        power: calcCards(4, "power"),
-                        tough: calcCards(4, 'tough'),
-                    },
-                    {
-                        val: "5+",
-                        power: calcCards("5", "power"),
-                        tough: calcCards("5", 'tough'),
-                    },
-                ]}/>
-        </div> */}
-      </div>
     </>
   );
 }

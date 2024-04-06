@@ -1,7 +1,8 @@
 import StatsBlock from "./StatsBlock";
 import "./Stats.css";
+import { calcCards } from "../js/general";
 
-const Stats = ({cardsInfo, calcCards}) => {
+const Stats = ({cardsInfo}) => {
     return (
         <div className="stats-container">
             <StatsBlock 
@@ -9,16 +10,16 @@ const Stats = ({cardsInfo, calcCards}) => {
                 info={cardsInfo.displayedCards ? cardsInfo.displayedCards.length : 0}/>
             <StatsBlock 
                 type="Creatures"
-                info={calcCards('Creature', 'type')}/>
+                info={calcCards(cardsInfo, 'Creature', 'type')}/>
             <StatsBlock 
                 type="Sorceries"
-                info={calcCards('Sorcery', 'type')}/>
+                info={calcCards(cardsInfo, 'Sorcery', 'type')}/>
             <StatsBlock 
                 type="Enchantments"
-                info={calcCards('Enchantment', 'type')}/>
+                info={calcCards(cardsInfo, 'Enchantment', 'type')}/>
             <StatsBlock 
                 type="Other"
-                info={calcCards('other', 'type')}/>
+                info={calcCards(cardsInfo, 'other', 'type')}/>
         </div>
     );
 }
