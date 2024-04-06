@@ -84,7 +84,7 @@ const Home = ({cardsInfo, setCards, updateDataVizInfo}) => {
   }
 
   const refreshCards = () => {
-    getNewCards();
+    getNewCards(setCards).catch(console.error);
     // reset all the filters
     setFilter((prevState) => ({
       ...prevState,
